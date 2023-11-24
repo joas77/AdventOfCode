@@ -25,7 +25,9 @@ if __name__ == "__main__":
     print(look_and_say("1211"))
 
     val = "3113322113"
-    for i in range(40):
+    for i in range(50):
         val = look_and_say(val)
+        if i == 40:
+            print(f"it 40 result ==> {len(val)}")
 
-    print(f"result ==> {len(val)}")
+    print(f"it 50 result ==> {len(val)}")
