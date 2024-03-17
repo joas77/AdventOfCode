@@ -14,3 +14,7 @@ Repo to save Advent Of Code solutions
 - day 5
     - [x] [part 1](2016/day5/day5.py)
     - [x] [part 2](2016/day5/day5_part2.py)
+
+- day 6
+    - [x] [part 1](2016/day6/day6.py)
+    - [x] [part 2](2016/day6/day6_part2.py)
