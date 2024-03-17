@@ -16,7 +16,6 @@ def calculate_letter_freq(words):
     return letter_freq
 
 def sort_letter_freq(letter_freq: dict):
-    #return sorted(letter_freq, key=lambda x : letter_freq[x], reverse=True)
     count_letter = zip(letter_freq.values(), letter_freq.keys())
     return sorted(count_letter, key=lambda t: (-t[0], t[1]) )
 
