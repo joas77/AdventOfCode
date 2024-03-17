@@ -10,3 +10,7 @@ Repo to save Advent Of Code solutions
 - day 4
     - [x] [part 1](2016/day4/day4.py)
     - [x] [part 2](2016/day4/day4.py)
+
+- day 5
+    - [x] [part 1](2016/day5/day5.py)
+    - [ ] part 2
