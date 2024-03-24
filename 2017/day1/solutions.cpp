@@ -1,15 +1,13 @@
 #include <iostream>
-#include "part1.hpp"
+#include "solutions.hpp"
 
-void Part1(std::string_view number)
+void Solution(std::string_view number, int offset)
 {
     int sum = 0;
     for(size_t i=0; i<number.length(); i++)
     {
         int curr_digit = std::stoi(std::string{number[i]});
-        int next_digit = i < number.length() - 1
-            ? std::stoi(std::string{number[i+1]})
-            : std::stoi(std::string{number[0]});
+        int next_digit = std::stoi(std::string{number[(i+offset) % number.length()]});
         
         if (curr_digit == next_digit)
         {
@@ -19,5 +17,4 @@ void Part1(std::string_view number)
 
     std::cout << number <<std::endl;
     std::cout << "captcha = " << sum << std::endl;
-    std::cout << "=========================================" << std::endl;
 }

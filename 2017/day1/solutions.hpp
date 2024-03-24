@@ -3,6 +3,6 @@
 
 #include <string_view>
 
-void Part1(std::string_view number);
+void Solution(std::string_view number, int offset=1);
 
 #endif
