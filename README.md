@@ -21,3 +21,7 @@ Repo to save Advent Of Code solutions
 
 - day 7
     - [ ] [part 1](2016/day7/day7.py)
+
+## 2017
+- day 1
+    - [x] [part 1](2017/day1/day1.cpp)
