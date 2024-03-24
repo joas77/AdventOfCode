@@ -1,5 +1,8 @@
-#vscode stuff
+# vscode stuff
 .vscode
+
+# cpp stuff
+*.exe
 
 # input files
 */*/input.txt
