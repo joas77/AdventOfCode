@@ -24,5 +24,5 @@ Repo to save Advent Of Code solutions
 
 ## 2017
 - day 1
-    - [x] [part 1](2017/day1/day1.cpp)
-    - [x] [part 2](2017/day1/day1.cpp)
+    - [x] [part 1](events/2017/day1/day1.cpp)
+    - [x] [part 2](events/2017/day1/day1.cpp)

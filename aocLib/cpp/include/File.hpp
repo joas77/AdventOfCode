@@ -1,8 +1,10 @@
 #ifndef FILE_HPP
 #define FILE_HPP
 
-#include <istream>
+#include <fstream>
+#include <vector>
 #include <filesystem>
+#include "String.hpp"
 
 namespace aoc
 {
@@ -14,13 +16,12 @@ namespace aoc
         File()=delete;
         ~File();
 
-        std::vector<std::string> ReadLines();
+        std::vector<String> ReadLines();
 
     private:
-        std::ifstream file; // TODO should I use the parent class instead?
-        bool is_open_ = false;
+        std::fstream file;
     };
 
-}
+} // namespace aoc
 
 #endif
