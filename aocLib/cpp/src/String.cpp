@@ -18,8 +18,7 @@ namespace aoc
         {
             String s;
             substream >> s;
-            // TODO overload == operator
-            if(s.Str() != "")
+            if(s != "")
                 substrings.push_back(s);
         }
         
@@ -46,6 +45,16 @@ namespace aoc
     {
         is >> str.Str();
         return is;
+    }
+    
+    bool String::operator==(const std::string& rhs) const
+    {
+        return Str() == rhs;
+    }
+
+    bool String::operator==(const String& rhs) const
+    {
+        return Str() == rhs.Str();
     }
 
 } // namespace aoc

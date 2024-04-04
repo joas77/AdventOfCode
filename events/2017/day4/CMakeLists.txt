@@ -7,6 +7,11 @@ set(AOC_LIB         "aocLib")
 set(SOLUTION_TARGET "solution")
 set(AOC_LIB_PATH    ../../../aocLib/cpp)
 
+set(CMAKE_CXX_FLAGS_DEBUG_INIT "-Wall")
+set(CMAKE_CXX_FLAGS_RELEASE_INIT "-Wall")
+
+set(DCMAKE_BUILD_TYPE   Debug)
+
 project(aoc2017Day4 LANGUAGES CXX)
 
 add_subdirectory(${AOC_LIB_PATH}    ${AOC_LIB_PATH}/build)
