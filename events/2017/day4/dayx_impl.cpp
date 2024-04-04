@@ -5,4 +5,5 @@
 void Day1()
 {
     std::cout << "hello aoc 2017 day4!" << std::endl;
+    aoc::File input("input.txt");
 }

@@ -18,4 +18,7 @@ set(SOLUTION_LIB "solutionLib")
 
 add_library(${SOLUTION_LIB} dayx_impl.cpp)
 target_include_directories(${SOLUTION_LIB}  PUBLIC ${AOC_LIB_PATH}/include)
-target_link_libraries(${SOLUTION_TARGET}    PUBLIC ${SOLUTION_LIB})
+target_link_libraries(${SOLUTION_TARGET}    PUBLIC
+    ${SOLUTION_LIB}
+    ${AOC_LIB}
+)
