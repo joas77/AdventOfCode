@@ -30,3 +30,7 @@ Repo to save Advent Of Code solutions
 - day 4
     - [x] [part 1](events/2017/day4/solutions.cpp)
     - [x] [part 2](events/2017/day4/solutions.cpp)
+
+- day 5
+    - [x] [part 1](events/2017/day5/solutions.cpp)
+    - [x] [part 2](events/2017/day5/solutions.cpp)
