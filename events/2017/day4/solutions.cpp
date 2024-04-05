@@ -2,6 +2,7 @@
 
 int main()
 {
-    Day1();
+    //Part1();
+    Part2();
     return 0;
 }

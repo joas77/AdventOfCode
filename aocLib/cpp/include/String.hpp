@@ -21,20 +21,26 @@ namespace aoc
         bool operator==(const std::string& rhs) const;
         bool operator==(const String& rhs) const;
 
+        inline std::string::iterator begin()
+        { return data_.begin(); }
+
+        inline std::string::iterator end()
+        { return data_.end(); }
+
         // trim from start (in place)
         void Ltrim()
         {
-            data.erase(data.begin(), std::find_if(data.begin(), data.end(), [this](unsigned char ch)
+            data_.erase(data_.begin(), std::find_if(data_.begin(), data_.end(), [this](unsigned char ch)
                                                   { return !IsSpace(ch); }));
         }
 
         // trim from end (in place)
         void Rtrim()
         {
-            data.erase(std::find_if(data.rbegin(), data.rend(), [this](unsigned char ch)
+            data_.erase(std::find_if(data_.rbegin(), data_.rend(), [this](unsigned char ch)
                                     { return !IsSpace(ch); })
                            .base(),
-                       data.end());
+                       data_.end());
         }
 
         // trim from both ends (in place)
@@ -45,7 +51,7 @@ namespace aoc
         }
 
     private:
-        std::string data;
+        std::string data_;
 
         bool IsSpace(char c) { return std::isspace(c) || c == '\0'; }
     };

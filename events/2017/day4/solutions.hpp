@@ -1,8 +1,7 @@
 #ifndef SOLUTIONS_HPP
 #define SOLUTIONS_HPP
 
-//#include "File.hpp"
-
-void Day1();
+void Part1();
+void Part2();
 
 #endif

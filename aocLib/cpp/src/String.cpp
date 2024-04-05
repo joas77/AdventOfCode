@@ -5,12 +5,12 @@
 namespace aoc
 {
 
-    String::String(const std::string& data):data{data}{}
+    String::String(const std::string& data):data_{data}{}
 
     std::vector<String> String::Split() const
     {
         std::vector<String> substrings;
-        auto temp = String{data};
+        auto temp = String{data_};
         temp.Trim();
         std::stringstream substream{temp.Str()};
 
@@ -27,12 +27,12 @@ namespace aoc
 
     std::string String::Str() const
     {
-        return data;
+        return data_;
     }
 
     std::string& String::Str()
     {
-        return data;
+        return data_;
     }
 
     std::ostream& operator<<(std::ostream& os, const String& str)
