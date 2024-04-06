@@ -2,7 +2,6 @@
 
 int main()
 {
-    Part1();
-    Part2();
+    Part1And2();
     return 0;
 }

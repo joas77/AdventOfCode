@@ -8,8 +8,7 @@
 
 using Banks=std::vector<int>;
 
-void Part1();
-void Part2();
+void Part1And2();
 
 // Helper functions
 std::vector<int> ReadMemoryBanks(std::string_view filename);

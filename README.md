@@ -37,3 +37,4 @@ Repo to save Advent Of Code solutions
 
 - day 6
     - [x] [part 1](events/2017/day6/solutions.cpp)
+    - [x] [part 2](events/2017/day6/solutions.cpp)
