@@ -21,10 +21,6 @@ if __name__ == "__main__":
     
     # TODO replace aoc20XXDayXX in cmake by teh year an day
 
-    # copy templates
-    for template in templates_path.iterdir():
-        subprocess.run(["cp", template, path])
-
     cmds = [
         f"mkdir -p {path}",
         f"mkdir -p {path}/build"
@@ -32,3 +28,7 @@ if __name__ == "__main__":
 
     for cmd in cmds:
         subprocess.run(cmd.split())
+
+    # copy templates
+    for template in templates_path.iterdir():
+        subprocess.run(["cp", template, path])

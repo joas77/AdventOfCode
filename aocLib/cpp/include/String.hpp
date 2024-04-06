@@ -20,6 +20,8 @@ namespace aoc
 
         bool operator==(const std::string& rhs) const;
         bool operator==(const String& rhs) const;
+        inline void append(const std::string& str)
+        { data_.append(str); }
 
         inline std::string::iterator begin()
         { return data_.begin(); }
