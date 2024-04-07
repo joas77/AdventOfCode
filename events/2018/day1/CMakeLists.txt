@@ -10,9 +10,6 @@ set(AOC_LIB_PATH    ../../../aocLib/cpp)
 set(CMAKE_CXX_FLAGS_DEBUG_INIT "-Wall")
 set(CMAKE_CXX_FLAGS_RELEASE_INIT "-Wall")
 
-# use this command to compile in debug mode
-# inside of build folder
-# cmake -DCMAKE_BUILD_TYPE=Debug ..
 #set(DCMAKE_BUILD_TYPE   Debug)
 
 project(@aoc20XXDayXX@ LANGUAGES CXX)
