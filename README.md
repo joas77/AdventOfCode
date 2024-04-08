@@ -38,3 +38,12 @@ Repo to save Advent Of Code solutions
 - day 6
     - [x] [part 1](events/2017/day6/solutions.cpp)
     - [x] [part 2](events/2017/day6/solutions.cpp)
+
+## 2018
+- day 1
+    - [x] [part 1](events/2018/day1/solutions.cpp)
+    - [x] [part 2](events/2018/day1/solutions.cpp)
+
+- day 2
+    - [x] [part 1](events/2018/day2/solutions.cpp)
+    - [x] [part 2](events/2018/day2/solutions.cpp)

@@ -57,4 +57,9 @@ namespace aoc
         return Str() == rhs.Str();
     }
 
+    std::size_t String::size() const
+    {
+        return Str().size();
+    }
+
 } // namespace aoc

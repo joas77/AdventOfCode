@@ -20,6 +20,7 @@ namespace aoc
 
         bool operator==(const std::string& rhs) const;
         bool operator==(const String& rhs) const;
+        std::size_t size() const;
         inline void append(const std::string& str)
         { data_.append(str); }
 
@@ -28,6 +29,18 @@ namespace aoc
 
         inline std::string::iterator end()
         { return data_.end(); }
+
+        inline std::string::const_iterator begin() const
+        { return data_.cbegin(); }
+
+        inline std::string::const_iterator end() const
+        { return data_.cend(); }
+
+        inline std::string::const_iterator cbegin() const
+        { return data_.cbegin(); }
+
+        inline std::string::const_iterator cend() const
+        { return data_.cend(); }
 
         // trim from start (in place)
         void Ltrim()
