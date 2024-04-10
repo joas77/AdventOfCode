@@ -6,6 +6,10 @@ Repo to save Advent Of Code solutions
     - [x] [part 1](events/2015/day23/solutions.cpp)
     - [x] [part 2](events/2015/day23/solutions.cpp)
 
+- day 25
+    - [x] [part 1](events/2015/day25/solutions.cpp)
+    - [ ] part 2: solve al previous exercises
+
 ## 2016
 - day 1
     - [ ] [part 1](events/2016/day1/day1.py)
