@@ -57,9 +57,19 @@ namespace aoc
         return Str() == rhs.Str();
     }
 
+    char String::operator[](std::size_t index) const
+    {
+        return Str()[index];
+    }
+
     std::size_t String::size() const
     {
         return Str().size();
+    }
+
+    String String::Substr(std::size_t pos, std::size_t count) const
+    {
+        return String{Str().substr(pos, count)};
     }
 
 } // namespace aoc

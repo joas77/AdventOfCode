@@ -20,7 +20,9 @@ namespace aoc
 
         bool operator==(const std::string& rhs) const;
         bool operator==(const String& rhs) const;
+        char operator[](std::size_t index) const;
         std::size_t size() const;
+        String Substr(std::size_t pos=0, std::size_t count = std::string::npos) const;
         inline void append(const std::string& str)
         { data_.append(str); }
 
