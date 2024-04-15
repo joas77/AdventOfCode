@@ -1,6 +1,10 @@
 #include "Utils.hpp"
 
-void PrintSeparator()
+namespace aoc
 {
-    std::cout << "==============================" << std::endl;
-}
+    void PrintSeparator()
+    {
+        std::cout << "============================================================" << std::endl;
+    }
+
+} // namespace aoc

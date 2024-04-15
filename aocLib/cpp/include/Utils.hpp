@@ -4,35 +4,40 @@
 #include <iostream>
 #include <unordered_map>
 
-template <typename InputIt>
-void PrintContainer(InputIt first, InputIt last)
+namespace aoc
 {
-    for(auto it = first; it!=last; ++it)
-    {
-        std::cout << *it << " ";
-    }
-    std::cout << std::endl;
-}
 
-//TODO: test this function
-template < typename InputIt, typename DataType>
-std::unordered_map<DataType, int> hist(InputIt first, InputIt last)
-{
-    std::unordered_map<DataType, int> hist; 
-    for (auto it = first; it != last; ++it)
+    template <typename InputIt>
+    void PrintContainer(InputIt first, InputIt last)
     {
-        if (hist.find() == hist.end())
+        for (auto it = first; it != last; ++it)
         {
-            hist.insert(std::make_pair(DataType{*it}, 1));
+            std::cout << *it << " ";
         }
-        else
-        {
-            hist[*it]++;
-        }
+        std::cout << std::endl;
     }
-    return hist;
-}
 
-void PrintSeparator();
+    // TODO: test this function
+    template <typename InputIt, typename DataType>
+    std::unordered_map<DataType, int> hist(InputIt first, InputIt last)
+    {
+        std::unordered_map<DataType, int> hist;
+        for (auto it = first; it != last; ++it)
+        {
+            if (hist.find() == hist.end())
+            {
+                hist.insert(std::make_pair(DataType{*it}, 1));
+            }
+            else
+            {
+                hist[*it]++;
+            }
+        }
+        return hist;
+    }
+
+    void PrintSeparator();
+
+} // namespace aoc
 
 #endif // UTILS_HPP
