@@ -1,6 +1,7 @@
 set(AOC_INCLUDES    ../include)
 
-# TODO improve script by automatically add all hpp and cpp files
+# CMake does not recommend using find(GLOBAL ...) https://cmake.org/cmake/help/latest/command/file.html#filesystem
+# So all files will be need to add manually here
 set(AOC_SOURCES 
     String.cpp
     File.cpp
