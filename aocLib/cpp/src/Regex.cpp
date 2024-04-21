@@ -1,11 +1,12 @@
+#include <regex>
 #include "Regex.hpp"
 
 namespace aoc::re{
-    std::vector<String> MatchGroups(const std::regex& pattern, const String& string)
+    std::vector<String> MatchGroups(const String& pattern, const String& string)
     {
         std::vector<String> group_matches;
-
-        auto matches_begin = std::sregex_iterator(string.begin(), string.end(), pattern);
+        auto regex_pat = std::regex{pattern.Str()};
+        auto matches_begin = std::sregex_iterator(string.begin(), string.end(), regex_pat);
         auto matches_end = std::sregex_iterator();
 
         for (auto it = matches_begin; it != matches_end; ++it)

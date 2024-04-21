@@ -3,16 +3,17 @@
 #include <iterator>
 #include <iostream>
 #include <unordered_map>
+#include "String.hpp"
 
 namespace aoc
 {
 
     template <typename InputIt>
-    void PrintContainer(InputIt first, InputIt last)
+    void PrintContainer(InputIt first, InputIt last, char sep = ' ')
     {
         for (auto it = first; it != last; ++it)
         {
-            std::cout << *it << " ";
+            std::cout << *it << sep;
         }
         std::cout << std::endl;
     }
@@ -37,6 +38,8 @@ namespace aoc
     }
 
     void PrintSeparator();
+
+    int StrToInt(const aoc::String &str_num, int base = 10);
 
 } // namespace aoc
 
