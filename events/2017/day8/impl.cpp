@@ -9,18 +9,26 @@
 
 void Part1()
 {
-    aoc::File input{"../input.txt"};
+    Cpu cpu;
+    cpu.ReadInstructions(aoc::String{"../input.txt"});
 
-    std::vector<Instruction> instructions;
+    cpu.ProcessInstructions();
+    cpu.PrintRegisters();
 
-    RegistersTable registers;
+    aoc::PrintSeparator();
+    std::cout << "Highest reg value = " << cpu.HighestValueRegVal() << std::endl;
+}
+
+void Cpu::ReadInstructions(const aoc::String &input_file)
+{
+    aoc::File input{input_file.Str()};
 
     for (auto &line : input.ReadLines())
     {
         aoc::String pattern{"(\\w+) (\\w+) (-?\\d+) if (\\w+) (.?.?) (-?\\d+)"};
         auto matches = aoc::re::MatchGroups(pattern, line);
         // aoc::PrintContainer(matches.cbegin(), matches.cend(), '/');
-        instructions.push_back(Instruction{
+        instructions_.push_back(Instruction{
             matches.at(0),
             matches.at(1),
             StrToInt(matches.at(2)),
@@ -28,24 +36,21 @@ void Part1()
             matches.at(4),
             StrToInt(matches.at(5))});
     }
+}
 
-    for (const auto &ins : instructions)
+void Cpu::ProcessInstructions()
+{
+    for (auto &ins : instructions_)
     {
-        ProcessInstruction(ins, registers);
+        ProcessInst(ins, regs_);
     }
 
-    std::vector<RegisterVal> register_values(registers.begin(), registers.end());
-    std::sort(register_values.begin(), register_values.end(), [](const RegisterVal &rega, const RegisterVal &regb)
+    reg_values_ = std::vector<RegisterVal>(regs_.begin(), regs_.end());
+    std::sort(reg_values_.begin(), reg_values_.end(), [](const RegisterVal &rega, const RegisterVal &regb)
               { return rega.second > regb.second; });
-
-    PrintRegisters(register_values);
 }
 
-void Part2()
-{
-}
-
-void ProcessInstruction(const Instruction &inst, RegistersTable &regs)
+void Cpu::ProcessInst(const Instruction &inst, RegistersTable &regs)
 {
     if (regs.find(inst.op_reg) == regs.cend())
     {
@@ -67,9 +72,11 @@ void ProcessInstruction(const Instruction &inst, RegistersTable &regs)
     {
         regs.at(inst.op_reg) -= inst.op_value;
     }
+
+    highest_val_ = regs_.at(inst.op_reg) > highest_val_ ? regs_.at(inst.op_reg) : highest_val_;
 }
 
-bool Cmp(const aoc::String &reg, const aoc::String cmp, int value, const RegistersTable &regs)
+bool Cpu::Cmp(const aoc::String &reg, const aoc::String cmp, int value, const RegistersTable &regs)
 {
     if (cmp == "==")
     {
@@ -103,10 +110,19 @@ bool Cmp(const aoc::String &reg, const aoc::String cmp, int value, const Registe
     return false;
 }
 
-void PrintRegisters(const std::vector<RegisterVal> &registers)
+void Cpu::PrintRegisters()
 {
-    for (const auto &[reg, value] : registers)
+    for (const auto &[reg, value] : reg_values_)
     {
         std::cout << reg << " == " << value << std::endl;
     }
+}
+
+int Cpu::HighestValueRegVal() const
+{
+    return highest_val_;
+}
+
+void Part2()
+{
 }

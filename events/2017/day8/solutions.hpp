@@ -2,6 +2,7 @@
 #define SOLUTIONS_HPP
 
 #include <unordered_map>
+#include <vector>
 #include "String.hpp"
 
 struct Instruction
@@ -14,13 +15,28 @@ struct Instruction
     int cmp_value;
 };
 
+using RegisterVal = std::pair<aoc::String, int>;
+using RegistersTable = std::unordered_map<aoc::String, int>;
+class Cpu
+{
+public:
+    void ReadInstructions(const aoc::String &input_file);
+    void ProcessInstructions();
+    void PrintRegisters();
+    int HighestValueRegVal() const;
+
+private:
+    std::vector<Instruction> instructions_;
+    RegistersTable regs_;
+    std::vector<RegisterVal> reg_values_;
+    int highest_val_{0};
+
+    bool Cmp(const aoc::String &reg, const aoc::String cmp, int value, const RegistersTable &regs);
+    void ProcessInst(const Instruction &inst, RegistersTable &regs);
+};
+
 void Part1();
 
-using RegistersTable = std::unordered_map<aoc::String, int>;
-void ProcessInstruction(const Instruction &inst, RegistersTable &regs);
-bool Cmp(const aoc::String &reg, const aoc::String cmp, int value, const RegistersTable &regs);
-
-using RegisterVal = std::pair<aoc::String, int>;
 void PrintRegisters(const std::vector<RegisterVal> &registers);
 
 void Part2();
