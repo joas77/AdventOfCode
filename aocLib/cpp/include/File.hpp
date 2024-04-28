@@ -12,14 +12,15 @@ namespace aoc
     class File
     {
     public:
-        File(const fs::path& path);
-        File()=delete;
+        File(const fs::path &path);
+        File(const aoc::String &path);
+        File() = delete;
         ~File();
 
         std::vector<String> ReadLines();
 
     private:
-        std::fstream file;
+        std::fstream file_;
     };
 
 } // namespace aoc

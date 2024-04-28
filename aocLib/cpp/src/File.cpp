@@ -3,28 +3,30 @@
 namespace aoc
 {
 
-    File::File(const fs::path &path) : file{path}
+    File::File(const fs::path &path) : file_{path}
     {
     }
 
+    File::File(const aoc::String &path) : file_{path.Str()} {}
+
     File::~File()
     {
-        if (file.is_open())
+        if (file_.is_open())
         {
-            file.close();
+            file_.close();
         }
     }
 
     std::vector<String> File::ReadLines()
     {
         std::vector<String> lines;
-        if (file.is_open())
+        if (file_.is_open())
         {
-            while (file)
+            while (file_)
             {
                 std::string line;
-                std::getline(file, line);
-                if(line != "")
+                std::getline(file_, line);
+                if (line != "")
                     lines.push_back(String{line});
             }
         }
