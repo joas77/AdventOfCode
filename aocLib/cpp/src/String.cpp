@@ -5,7 +5,9 @@
 namespace aoc
 {
 
-    String::String(const std::string& data):data_{data}{}
+    String::String(const std::string &data) : data_{data} {}
+
+    String::String(int n) : data_{std::to_string(n)} {}
 
     std::vector<String> String::Split() const
     {
@@ -18,10 +20,10 @@ namespace aoc
         {
             String s;
             substream >> s;
-            if(s != "")
+            if (s != "")
                 substrings.push_back(s);
         }
-        
+
         return substrings;
     }
 
@@ -30,31 +32,36 @@ namespace aoc
         return data_;
     }
 
-    std::string& String::Str()
+    std::string &String::Str()
     {
         return data_;
     }
 
-    std::ostream& operator<<(std::ostream& os, const String& str)
+    std::ostream &operator<<(std::ostream &os, const String &str)
     {
         os << str.Str();
         return os;
     }
 
-    std::istream& operator>>(std::istream& is, String& str)
+    std::istream &operator>>(std::istream &is, String &str)
     {
         is >> str.Str();
         return is;
     }
-    
-    bool String::operator==(const std::string& rhs) const
+
+    bool String::operator==(const std::string &rhs) const
     {
         return Str() == rhs;
     }
 
-    bool String::operator==(const String& rhs) const
+    bool String::operator==(const String &rhs) const
     {
         return Str() == rhs.Str();
+    }
+
+    String String::operator+(const String s) const
+    {
+        return String{Str() + s.Str()};
     }
 
     char String::operator[](std::size_t index) const
