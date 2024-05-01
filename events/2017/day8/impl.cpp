@@ -21,7 +21,7 @@ void Part1()
 
 void Cpu::ReadInstructions(const aoc::String &input_file)
 {
-    aoc::File input{input_file.Str()};
+    aoc::File input{input_file};
 
     for (auto &line : input.ReadLines())
     {
