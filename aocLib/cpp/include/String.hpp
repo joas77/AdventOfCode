@@ -102,4 +102,7 @@ struct std::hash<aoc::String>
     }
 };
 
+aoc::String operator*(const aoc::String &lhs, int rhs);
+aoc::String operator*(int lhs, const ::aoc::String &rhs);
+
 #endif // STRING_HPP

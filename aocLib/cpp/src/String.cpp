@@ -80,3 +80,27 @@ namespace aoc
     }
 
 } // namespace aoc
+
+aoc::String operator*(const aoc::String &lhs, int rhs)
+{
+    std::string s;
+    s.reserve(lhs.size() * rhs);
+
+    for (int i = 0; i < rhs; i++)
+    {
+        s.append(lhs.Str());
+    }
+    return aoc::String{s};
+}
+
+aoc::String operator*(int lhs, const ::aoc::String &rhs)
+{
+    std::string s;
+    s.reserve(rhs.size() * lhs);
+
+    for (int i = 0; i < lhs; i++)
+    {
+        s.append(rhs.Str());
+    }
+    return aoc::String{s};
+}
