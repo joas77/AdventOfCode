@@ -7,7 +7,7 @@ namespace aoc
         std::cout << "============================================================" << std::endl;
     }
 
-    int StrToInt(const aoc::String &str_num, int base)
+    int Int(const aoc::String &str_num, int base)
     {
         return std::stoi(str_num.Str(), 0, base);
     }

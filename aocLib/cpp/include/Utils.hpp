@@ -18,6 +18,12 @@ namespace aoc
         std::cout << std::endl;
     }
 
+    template <typename Container>
+    void PrintContainer(Container c, char sep = ' ')
+    {
+        PrintContainer(c.cbegin(), c.cend(), sep);
+    }
+
     // TODO: test this function
     template <typename InputIt, typename DataType>
     std::unordered_map<DataType, int> hist(InputIt first, InputIt last)
@@ -25,13 +31,13 @@ namespace aoc
         std::unordered_map<DataType, int> hist;
         for (auto it = first; it != last; ++it)
         {
-            if (hist.find() == hist.end())
+            if (hist.find(*it) == hist.cend())
             {
                 hist.insert(std::make_pair(DataType{*it}, 1));
             }
             else
             {
-                hist[*it]++;
+                hist.at(*it)++;
             }
         }
         return hist;
@@ -39,7 +45,7 @@ namespace aoc
 
     void PrintSeparator();
 
-    int StrToInt(const aoc::String &str_num, int base = 10);
+    int Int(const aoc::String &str_num, int base = 10);
 
 } // namespace aoc
 

@@ -7,7 +7,7 @@
 
 Reindeers Parse(aoc::String input)
 {
-    std::regex regex{"(\\w+) can fly (\\d+) km/s for (\\d+) seconds, but then must rest for (\\d+) seconds."};
+    aoc::String regex{"(\\w+) can fly (\\d+) km/s for (\\d+) seconds, but then must rest for (\\d+) seconds."};
     aoc::File file_input{input};
     Reindeers reindeers;
 

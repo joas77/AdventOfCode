@@ -27,14 +27,14 @@ void Cpu::ReadInstructions(const aoc::String &input_file)
     {
         aoc::String pattern{"(\\w+) (\\w+) (-?\\d+) if (\\w+) (.?.?) (-?\\d+)"};
         auto matches = aoc::re::MatchGroups(pattern, line);
-        // aoc::PrintContainer(matches.cbegin(), matches.cend(), '/');
+
         instructions_.push_back(Instruction{
             matches.at(0),
             matches.at(1),
-            StrToInt(matches.at(2)),
+            aoc::Int(matches.at(2)),
             matches.at(3),
             matches.at(4),
-            StrToInt(matches.at(5))});
+            aoc::Int(matches.at(5))});
     }
 }
 
