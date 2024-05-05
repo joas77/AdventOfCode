@@ -13,9 +13,6 @@ Reindeers Parse(aoc::String input)
 
     for (auto &line : file_input.ReadLines())
     {
-        auto matches_begin = std::sregex_iterator(line.begin(), line.end(), regex);
-        auto matches_end = std::sregex_iterator();
-
         auto matches = aoc::re::MatchGroups(regex, line);
 
         reindeers.push_back(Reindeer{

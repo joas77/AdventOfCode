@@ -3,7 +3,7 @@
 int main()
 {
     Part1();
-    PrintSeparator();
+    aoc::PrintSeparator();
     Part2();
     return 0;
 }
