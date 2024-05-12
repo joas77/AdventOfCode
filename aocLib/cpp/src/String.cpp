@@ -6,6 +6,7 @@ namespace aoc
 {
 
     String::String(const std::string &data) : data_{data} {}
+    // String::String(const char *data) : data_{data} {}
 
     String::String(int n) : data_{std::to_string(n)} {}
 
@@ -23,6 +24,29 @@ namespace aoc
             if (s != "")
                 substrings.push_back(s);
         }
+
+        return substrings;
+    }
+
+    std::vector<String> String::Split(const String &sep) const
+    {
+        std::vector<String> substrings;
+        if (sep.size() == 0)
+        {
+            substrings.push_back(*this);
+            return substrings;
+        }
+
+        size_t start_pos = 0;
+        for (size_t i = 0; i < size(); i++)
+        {
+            if ((*this)[i] == sep[0] && Substr(i, sep.size()) == sep)
+            {
+                substrings.push_back(Substr(start_pos, i - start_pos));
+                start_pos = i + sep.size();
+            }
+        }
+        substrings.push_back(Substr(start_pos, size() - start_pos));
 
         return substrings;
     }

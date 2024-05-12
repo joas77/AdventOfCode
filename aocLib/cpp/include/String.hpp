@@ -11,11 +11,13 @@ namespace aoc
     public:
         String() = default;
         String(const std::string &data);
+        // String(const char *data);
         String(int n);
 
         // String is splitted in sub-String(s) each time
         // an blank space is found
         std::vector<String> Split() const;
+        std::vector<String> Split(const String &sep) const;
         std::string Str() const;
         std::string &Str();
 
