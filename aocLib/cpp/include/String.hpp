@@ -2,6 +2,7 @@
 #define STRING_HPP
 
 #include <string>
+#include <algorithm>
 #include <vector>
 
 namespace aoc

@@ -6,10 +6,10 @@ def compile(path: pathlib.Path):
     build_folder = path/"build"
     build_folder.mkdir(exist_ok=True)
     # call cmake build commands
-    cmake = "cmake"
-    ret_code = subprocess.run([cmake, "-DCMAKE_BUILD_TYPE=Debug", build_folder]).returncode
+    cmd = f"cmake -DCMAKE_BUILD_TYPE=Debug -S {path} -B {build_folder}"
+    ret_code = subprocess.run(cmd.split()).returncode
     if ret_code == 0:
-        ret_code = subprocess.run([cmake, "--build", build_folder ]).returncode
+        ret_code = subprocess.run(["cmake", "--build", build_folder ]).returncode
 
     return ret_code
 
@@ -21,7 +21,8 @@ class TestSolutions(unittest.TestCase):
             print(day_path)
             self.assertEqual(compile(day_path), 0, "Compilation error")
 
-        self.assertTrue(True)
+
+
 
 if __name__ == "__main__":
     unittest.main()
