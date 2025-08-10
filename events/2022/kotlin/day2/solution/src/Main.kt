@@ -1,12 +1,11 @@
 import java.io.File
-import java.io.FileInputStream
 
 fun main() {
-    val strategy = File("./input/input.txt").inputStream()
+    val strategy = "./input/input.txt"
     println("Part 1 solution")
     part1(strategy)
     println("Part 2 solution")
-    //part2(strategy)
+    part2(strategy)
 }
 
 fun gameScoreCalculator(opponentAction: RockPaperScissors, myAction: RockPaperScissors): Int {
@@ -19,8 +18,8 @@ fun gameScoreCalculator(opponentAction: RockPaperScissors, myAction: RockPaperSc
     }
 }
 
-fun part1(fileStream: FileInputStream) {
-    val strategy = fileStream
+fun part1(filePath: String) {
+    val strategy = File("./input/input.txt").inputStream()
     val opponentActionToPoints = mapOf(
         "A" to RockPaperScissors("rock"),
         "B" to RockPaperScissors("paper"),
@@ -36,25 +35,15 @@ fun part1(fileStream: FileInputStream) {
     var totalScore = 0
     strategy.bufferedReader().forEachLine {
         val (opponent, me) = it.split("\\s+".toRegex())
-        println("$opponent $me")
         val opponentAction = opponentActionToPoints[opponent]
         val myAction = myActionToPoints[me]
-        var roundScore = 0
-        roundScore += if( myAction!!.defeats == opponentAction!!.name ) { // win
-            6
-        } else if ( opponentAction.defeats == myAction.name ) { // lose
-            0
-        } else { // draw
-            3
-        }
-        roundScore += myAction.score
-        totalScore += roundScore
+        totalScore += gameScoreCalculator(opponentAction!!, myAction!!) + myAction.score
     }
     println("Total score: $totalScore")
 }
 
-fun part2(fileStream: FileInputStream) {
-    val strategy = fileStream
+fun part2(filePath: String) {
+    val strategy = File("./input/input.txt").inputStream()
     val opponentActionToPoints = mapOf(
         "A" to RockPaperScissors("rock"),
         "B" to RockPaperScissors("paper"),
@@ -69,7 +58,17 @@ fun part2(fileStream: FileInputStream) {
 
     var totalScore = 0
     strategy.bufferedReader().forEachLine {
+        val (opponent, me) = it.split("\\s+".toRegex())
+        val opponentAction = opponentActionToPoints[opponent]
+        val expectedOutcome = expectedResult[me]
 
+        val myAction = when (expectedOutcome) {
+            "win" -> RockPaperScissors(opponentAction!!.defeatedBy)
+            "lose" -> RockPaperScissors(opponentAction!!.defeats)
+            "draw" -> opponentAction
+            else -> throw IllegalArgumentException("Invalid expected outcome: $expectedOutcome")
+        }
+        totalScore += gameScoreCalculator(opponentAction!!, myAction!!) + myAction.score
     }
     println("Total score: $totalScore")
 }
